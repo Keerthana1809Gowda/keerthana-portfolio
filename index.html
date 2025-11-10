@@ -136,11 +136,6 @@
             text-decoration: none;
         }
 
-        .nav-command::before {
-            content: '>';
-            margin-right: 5px;
-        }
-
         .nav-command:hover {
             background: var(--neon-purple);
             color: var(--dark-bg);
@@ -189,18 +184,19 @@
                 font-size: 18px;
             }
 
-            /* Close button for mobile menu */
+            /* Fixed Close Button - No overlapping */
             .close-menu {
                 position: absolute;
-                top: 20px;
-                right: 20px;
+                top: 25px;
+                right: 25px;
                 background: transparent;
                 border: 1px solid var(--neon-pink);
                 color: var(--neon-pink);
-                padding: 10px;
+                padding: 10px 12px;
                 border-radius: 5px;
                 cursor: pointer;
-                font-size: 20px;
+                font-size: 18px;
+                z-index: 1002;
             }
         }
 
@@ -660,7 +656,6 @@
                         <a href="#contact" class="cyber-btn">
                             <i class="fas fa-terminal"></i> CONNECT
                         </a>
-                        <!-- FIXED RESUME DOWNLOAD -->
                         <a href="resume.pdf" class="cyber-btn" download="Keerthana_Resume.pdf">
                             <i class="fas fa-download"></i> DOWNLOAD RESUME
                         </a>
@@ -668,21 +663,24 @@
                 </div>
             </div>
             
-            <div class="cyber-profile">
-                <div class="profile-frame">
-                    <!-- FIXED IMAGE PATH -->
-                    <img src="profile.png" alt="Keerthana N" class="profile-img" 
-                         onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
-                    <div class="profile-placeholder" id="profilePlaceholder" style="display: none;">
-                        <i class="fas fa-user"></i>
-                    </div>
-                </div>
-                <div style="margin-top: 20px;">
-                    <div class="cyber-badge">PATENT HOLDER</div>
-                    <div class="beginner-badge">CYBERSECURITY ENTHUSIAST</div>
-                </div>
-            </div>
-        </section>
+           <div class="cyber-profile">
+    <div class="profile-frame">
+        <img src="profile.png" alt="Keerthana N" class="profile-img"
+            onerror="this.style.display='none'; document.getElementById('profilePlaceholder').style.display='flex';">
+        <div class="profile-placeholder" id="profilePlaceholder" style="display: none;">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+    <div style="margin-top: 20px;">
+        <!-- CHANGED: PATENT HOLDER instead of PATENT APPLICANT -->
+        <div class="cyber-badge">PATENT HOLDER</div>
+        <div class="beginner-badge">CYBERSECURITY ENTHUSIAST</div>
+    </div>
+</div>
+</section>
+
+<!-- Rest of your sections remain the same -->
+<section id="education">
 
         <!-- Rest of your sections remain the same -->
         <section id="education">
@@ -897,19 +895,19 @@
         
         setInterval(drawMatrix, 35);
 
-        // FIXED Mobile Menu Functionality
+        // Fixed Mobile Menu Functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const cyberNav = document.getElementById('cyberNav');
         const closeMenu = document.getElementById('closeMenu');
 
         mobileMenuBtn.addEventListener('click', () => {
             cyberNav.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            document.body.style.overflow = 'hidden';
         });
 
         closeMenu.addEventListener('click', () => {
             cyberNav.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+            document.body.style.overflow = 'auto';
         });
 
         // Close menu when clicking on a link
